@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./component/home/HomePage";
+import AddCategoryPage from './component/categry/AddCategoryPage';
+import AllCategoryPage from './component/categry/AllCategoryPage';
+import AddProductPage from "./component/product/AddProductPage";
+import AllProductPage from "./component/product/AllProductPage";
+import AddBrandPage from './component/brand/AddBrandPage';
+import AllBrandPage from './component/brand/AllBrandPage';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Fragment>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/add-category" element={<AddCategoryPage />} />
+                    <Route path="/all-category" element={<AllCategoryPage/>} />
+                    <Route path="/add-brand" element={<AddBrandPage/>} />
+                    <Route path="/all-brand" element={<AllBrandPage/>} />
+                    <Route path="/add-product" element={<AddProductPage />} />
+                    <Route path="/all-product" element={<AllProductPage/>} />
+                </Routes>
+            </BrowserRouter>
+        </Fragment>
+    );
 }
 
 export default App;
